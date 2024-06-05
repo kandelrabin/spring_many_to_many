@@ -37,7 +37,7 @@ public class EstateService {
         Estate estateToUpdate = estateRepository.findById(id).get();
         estateToUpdate.setName(estateDTO.getName());
         estateToUpdate.setCountry(estateDTO.getCountry());
-        estateToUpdate.setCocoaOrders(new ArrayList<CocoaOrder>());
+        estateToUpdate.setCocoaOrders(new ArrayList<>());
 
         for (Long cocoaOrderId : estateDTO.getCocoaOrderIds()){
             CocoaOrder cocoaOrder = cocoaOrderRepository.findById(cocoaOrderId).get();
