@@ -1,6 +1,7 @@
 package com.bnta.chocolate.controllers;
 
 import com.bnta.chocolate.models.Chocolate;
+import com.bnta.chocolate.models.ChocolateDTO;
 import com.bnta.chocolate.services.ChocolateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -49,8 +50,22 @@ public class ChocolateController {
         return new ResponseEntity<>(chocolate, HttpStatus.CREATED);
     }
 
-//    TODO: UPDATE: PUT localhost:8080/chocolates/4
-
-//    TODO: DELETE: DELETE localhost:8080/chocolates/3
+//    UPDATE: PUT localhost:8080/chocolates/4
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Chocolate> updateChocolate(@RequestBody ChocolateDTO chocolateDTO, @PathVariable long id){
+        Optional<Chocolate> chocolate = chocolateService.findSingleChocolate(id);
+        if (chocolate.isEmpty()){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        } else{
+            Chocolate updatedChocolate = chocolateService.updateChocolate(chocolateDTO, id);
+            return new ResponseEntity<>(updatedChocolate, HttpStatus.OK);
+        }
+    }
+//    DELETE: DELETE localhost:8080/chocolates/3
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Long> deleteChocolate(@PathVariable long id){
+        chocolateService.deleteChocolate(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
 
 }

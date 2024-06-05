@@ -9,6 +9,7 @@ import com.bnta.chocolate.repositories.CocoaOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,16 +38,25 @@ public class ChocolateService {
         return chocolateRepository.findById(id);
     }
 
-    public Chocolate updateChocolate(ChocolateDTO chocolateDTO, long id){
-        Chocolate chocolateToUpdate = findSingleChocolate(id).get();
+    public Chocolate updateChocolate(ChocolateDTO chocolateDTO, long chocolateId){
+        Chocolate chocolateToUpdate = findSingleChocolate(chocolateId).get();
         chocolateToUpdate.setName(chocolateDTO.getName());
         chocolateToUpdate.setCocoaPercentage(chocolateDTO.getCocoaPercentage());
+        chocolateToUpdate.setCocoaOrders(new ArrayList<>());
         for (long cocoaOrderId : chocolateDTO.getCocoaOrderIds()){
             CocoaOrder cocoaOrder = cocoaOrderRepository.findById(cocoaOrderId).get();
             chocolateToUpdate.addCocoaOrder(cocoaOrder);
         }
         chocolateRepository.save(chocolateToUpdate);
         return chocolateToUpdate;
+    }
+
+    public void deleteChocolate(long chocolateId){
+        Chocolate chocolate = findSingleChocolate(chocolateId).get();
+        for (CocoaOrder cocoaOrder : chocolate.getCocoaOrders()){
+            cocoaOrderRepository.deleteById(cocoaOrder.getId());
+        }
+        chocolateRepository.deleteById(chocolateId);
     }
 
 }

@@ -2,6 +2,7 @@ package com.bnta.chocolate.controllers;
 
 import com.bnta.chocolate.models.Chocolate;
 import com.bnta.chocolate.models.Estate;
+import com.bnta.chocolate.models.EstateDTO;
 import com.bnta.chocolate.repositories.EstateRepository;
 import com.bnta.chocolate.services.EstateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +43,18 @@ public class EstateController {
         return new ResponseEntity<>(estateService.getAllEstates(), HttpStatus.CREATED);
     }
 
-//    TODO: UPDATE: PUT localhost:8080/estates/1
 
-//    TODO: DELETE: DELETE localhost:8080/estates/3
+    // UPDATE: PUT localhost:8080/estates/1
+    @PutMapping(value = "/{id}")    // ADDED
+    public ResponseEntity<Estate> updateEstate(@RequestBody EstateDTO estateDTO, @PathVariable Long id){
+        Estate estate = estateService.updateEstate(estateDTO, id);
+        return new ResponseEntity<>(estate, HttpStatus.OK);
+    }
 
+    // DELETE: DELETE localhost:8080/estates/3
+    @DeleteMapping(value = "/{id}") // ADDED
+    public ResponseEntity<Long> deleteEstate(@PathVariable Long id){
+        estateService.deleteEstate(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
 }
