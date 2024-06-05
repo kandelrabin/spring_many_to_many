@@ -1,0 +1,371 @@
+{
+	"info": {
+		"_postman_id": "1fafadfd-b910-4c42-9ebb-579940c77473",
+		"name": "M2M Chocs Join Table",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6681890"
+	},
+	"item": [
+		{
+			"name": "chocolates",
+			"item": [
+				{
+					"name": "INDEX",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/chocolates",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chocolates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INDEX cocoaPercentage filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/chocolates?cocoaPercentage=70",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chocolates"
+							],
+							"query": [
+								{
+									"key": "cocoaPercentage",
+									"value": "70"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/chocolates/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chocolates",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Crunchie\",\n    \"cocoaPercentage\" : 32\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/chocolates",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chocolates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/chocolates/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chocolates",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Supermilk Hazelnut\",\n    \"cocoaPercentage\" : 47\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/chocolates/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chocolates",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "estates",
+			"item": [
+				{
+					"name": "INDEX",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/estates",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/estates/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estates",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Cakao\",\n    \"country\" : \"Guatemala\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/estates",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Cakao\",\n    \"country\" : \"Mexico\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/estates/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estates",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/estates/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estates",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cocoaOrders",
+			"item": [
+				{
+					"name": "INDEX",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cocoa-orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cocoa-orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"chocolateId\" : 1,\n    \"estateId\" : 4,\n    \"batchNumber\" : \"CK957\",\n    \"pricePaid\" : 67.80\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cocoa-orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cocoa-orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cocoa-orders/8",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cocoa-orders",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cocoa-orders/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cocoa-orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
